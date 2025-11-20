@@ -315,22 +315,21 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       </div>
 
-      {/* Loading overlay */}
-      {isLoading && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-background-surface rounded-lg p-8">
-            <div className="flex items-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent-primary mr-4"></div>
-              <p className="text-text-primary">Procesando archivo...</p>
+          {/* Loading overlay */}
+          {isLoading && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <div className="bg-background-surface rounded-lg p-8">
+                <div className="flex items-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent-primary mr-4"></div>
+                  <p className="text-text-primary">Procesando archivo...</p>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
-      )}
-      </>
-      )}
 
-      {/* Disclaimer Modal */}
-      {showDisclaimer && (
+        {/* Disclaimer Modal */}
+        {showDisclaimer && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="bg-background-surface rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-8">
@@ -415,10 +414,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
             </div>
           </div>
         </div>
-      )}
-    </div>
-  );
-};
+        )}
+      </>
+    );
+  };
 
 // Componente del lector de libros
 interface BookReaderProps {

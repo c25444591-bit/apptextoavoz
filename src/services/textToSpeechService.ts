@@ -445,4 +445,3 @@ export class TextToSpeechService {
     return voices.filter(voice => this.isArgentineVoice(voice));
   }
 }
-}
