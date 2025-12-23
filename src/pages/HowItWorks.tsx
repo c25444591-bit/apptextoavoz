@@ -6,24 +6,24 @@ export const HowItWorks: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-yellow-50">
       {/* Header mejorado con mejor contraste */}
-      <header className="bg-white border-b-4 border-orange-400 sticky top-0 z-50 shadow-xl">
+      <header className="bg-white border-b-4 border-blue-400 sticky top-0 z-50 shadow-xl">
         <div className="max-w-5xl mx-auto px-6 py-6 flex items-center gap-6">
           <button
             onClick={() => navigate('/')}
-            className="p-4 hover:bg-orange-100 rounded-xl transition-all duration-200 border-2 border-orange-200 hover:border-orange-400 focus:ring-4 focus:ring-orange-200"
+            className="p-4 hover:bg-blue-100 rounded-xl transition-all duration-200 border-2 border-blue-200 hover:border-blue-400 focus:ring-4 focus:ring-blue-200"
             aria-label="Volver al inicio"
           >
-            <ArrowLeft size={28} className="text-orange-600" />
+            <ArrowLeft size={28} className="text-blue-600" />
           </button>
           <div className="flex items-center gap-4">
-            <div className="bg-orange-100 p-3 rounded-full">
-              <Headphones size={32} className="text-orange-600" />
+            <div className="bg-blue-100 p-3 rounded-full">
+              <Headphones size={32} className="text-blue-600" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-orange-700 tracking-tight">¿Cómo Funciona LibroVoz?</h1>
-              <p className="text-orange-600 font-medium">Guía paso a paso para usar tu lector de libros con IA</p>
+              <h1 className="text-3xl font-bold text-blue-700 tracking-tight">¿Cómo Funciona LibroVoz?</h1>
+              <p className="text-blue-600 font-medium">Guía paso a paso para usar tu lector de libros con IA</p>
             </div>
           </div>
         </div>
@@ -33,23 +33,23 @@ export const HowItWorks: React.FC = () => {
       <main className="max-w-5xl mx-auto px-6 py-12">
         
         {/* Intro mejorada con mejor accesibilidad */}
-        <div className="bg-gradient-to-r from-white to-orange-50 rounded-3xl p-12 shadow-2xl mb-12 border-4 border-orange-200 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-white to-blue-50 rounded-3xl p-12 shadow-2xl mb-12 border-4 border-blue-200 relative overflow-hidden">
           {/* Decoración de fondo */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
           <div className="absolute bottom-0 left-0 w-24 h-24 bg-yellow-100 rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
           
           <div className="relative z-10">
             <div className="flex items-center gap-6 mb-8">
-              <div className="bg-orange-500 p-6 rounded-2xl shadow-lg">
+              <div className="bg-blue-500 p-6 rounded-2xl shadow-lg">
                 <Eye size={48} className="text-white" />
               </div>
               <div>
                 <h2 className="text-4xl font-bold text-gray-800 mb-2 leading-tight">LibroVoz - Accesibilidad Visual</h2>
-                <p className="text-xl text-orange-600 font-semibold">Tu compañero de lectura inteligente</p>
+                <p className="text-xl text-blue-600 font-semibold">Tu compañero de lectura inteligente</p>
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-inner border-2 border-orange-100">
+            <div className="bg-white rounded-2xl p-8 shadow-inner border-2 border-blue-100">
               <p className="text-2xl text-gray-700 leading-relaxed font-medium mb-6">
                 🎯 <strong>Diseñado especialmente para personas con dificultades visuales</strong>
               </p>
@@ -83,25 +83,25 @@ export const HowItWorks: React.FC = () => {
         </div>
 
         {/* Paso 1 - Mejorado para accesibilidad */}
-        <div className="bg-gradient-to-r from-white to-orange-50 rounded-3xl p-8 shadow-2xl mb-8 border-l-8 border-orange-500 hover:shadow-3xl transition-all duration-300">
+        <div className="bg-gradient-to-r from-white to-blue-50 rounded-3xl p-8 shadow-2xl mb-8 border-l-8 border-blue-500 hover:shadow-3xl transition-all duration-300">
           <div className="flex items-start gap-6">
-            <div className="bg-gradient-to-br from-orange-400 to-orange-600 p-6 rounded-2xl flex-shrink-0 shadow-lg">
+            <div className="bg-gradient-to-br from-blue-400 to-blue-600 p-6 rounded-2xl flex-shrink-0 shadow-lg">
               <Upload size={40} className="text-white" />
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
-                <span className="bg-orange-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center shadow-lg">1</span>
+                <span className="bg-blue-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center shadow-lg">1</span>
                 <h3 className="text-3xl font-bold text-gray-800">Sube tu Libro</h3>
               </div>
               <p className="text-xl text-gray-700 leading-relaxed mb-6 font-medium">
                 📁 Arrastra un archivo PDF a la zona punteada o haz clic en el área que dice <strong>"Arrastra tu PDF o haz clic"</strong> para seleccionar un libro desde tu dispositivo.
               </p>
-              <div className="bg-gradient-to-r from-orange-100 to-yellow-100 p-6 rounded-2xl border-2 border-orange-200 shadow-inner">
+              <div className="bg-gradient-to-r from-blue-100 to-yellow-100 p-6 rounded-2xl border-2 border-blue-200 shadow-inner">
                 <div className="flex items-start gap-4">
                   <div className="text-3xl">💡</div>
                   <div>
-                    <p className="text-lg font-bold text-orange-800 mb-2">Consejo para principiantes:</p>
-                    <p className="text-orange-700 text-lg leading-relaxed">
+                    <p className="text-lg font-bold text-blue-800 mb-2">Consejo para principiantes:</p>
+                    <p className="text-blue-700 text-lg leading-relaxed">
                       Si es tu primera vez, prueba con el botón <strong>"Demo"</strong> para ver cómo funciona sin necesidad de subir ningún archivo.
                     </p>
                   </div>
@@ -309,7 +309,7 @@ export const HowItWorks: React.FC = () => {
                 💾 Toca el botón naranja <strong>"💾 Guardar"</strong> en la parte superior para guardar el libro en tu biblioteca personal. 
                 La próxima vez que entres, podrás acceder a él desde "📚 Mi Biblioteca".
               </p>
-              <div className="bg-gradient-to-r from-yellow-100 to-amber-100 p-6 rounded-2xl border-2 border-yellow-200 shadow-inner">
+              <div className="bg-gradient-to-r from-yellow-100 to-sky-100 p-6 rounded-2xl border-2 border-yellow-200 shadow-inner">
                 <div className="flex items-start gap-4">
                   <div className="text-3xl">💡</div>
                   <div>
@@ -326,7 +326,7 @@ export const HowItWorks: React.FC = () => {
         </div>
 
         {/* FAQ mejorada */}
-        <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-500 rounded-3xl p-12 shadow-2xl text-white relative overflow-hidden mb-12">
+        <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-red-500 rounded-3xl p-12 shadow-2xl text-white relative overflow-hidden mb-12">
           {/* Decoración de fondo */}
           <div className="absolute top-0 right-0 w-40 h-40 bg-white opacity-10 rounded-full -translate-y-20 translate-x-20"></div>
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-yellow-300 opacity-20 rounded-full translate-y-16 -translate-x-16"></div>
@@ -335,7 +335,7 @@ export const HowItWorks: React.FC = () => {
             <div className="text-center mb-10">
               <div className="text-6xl mb-4">❓</div>
               <h3 className="text-4xl font-bold mb-4">Preguntas Frecuentes</h3>
-              <p className="text-xl text-orange-100">Resolvemos las dudas más comunes sobre LibroVoz</p>
+              <p className="text-xl text-blue-100">Resolvemos las dudas más comunes sobre LibroVoz</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -344,7 +344,7 @@ export const HowItWorks: React.FC = () => {
                   <div className="text-3xl">🔊</div>
                   <div>
                     <p className="text-xl font-bold mb-3">¿Por qué no suena la voz?</p>
-                    <p className="text-orange-100 text-lg leading-relaxed">
+                    <p className="text-blue-100 text-lg leading-relaxed">
                       Asegúrate de estar en <strong>Modo IA (☁️)</strong> y tener internet activo. 
                       Si usas Modo Local, verifica que tengas voces en español instaladas.
                     </p>
@@ -357,7 +357,7 @@ export const HowItWorks: React.FC = () => {
                   <div className="text-3xl">👤</div>
                   <div>
                     <p className="text-xl font-bold mb-3">¿Necesito crear una cuenta?</p>
-                    <p className="text-orange-100 text-lg leading-relaxed">
+                    <p className="text-blue-100 text-lg leading-relaxed">
                       <strong>No necesitas registro.</strong> LibroVoz funciona inmediatamente. 
                       Solo sube tu PDF y empieza a escuchar.
                     </p>
@@ -370,7 +370,7 @@ export const HowItWorks: React.FC = () => {
                   <div className="text-3xl">💰</div>
                   <div>
                     <p className="text-xl font-bold mb-3">¿Es completamente gratis?</p>
-                    <p className="text-orange-100 text-lg leading-relaxed">
+                    <p className="text-blue-100 text-lg leading-relaxed">
                       <strong>Sí, 100% gratuito</strong> para uso personal. 
                       No hay límites ni pagos ocultos.
                     </p>
@@ -383,7 +383,7 @@ export const HowItWorks: React.FC = () => {
                   <div className="text-3xl">📶</div>
                   <div>
                     <p className="text-xl font-bold mb-3">¿Funciona sin internet?</p>
-                    <p className="text-orange-100 text-lg leading-relaxed">
+                    <p className="text-blue-100 text-lg leading-relaxed">
                       Sí, en <strong>Modo Local (💻)</strong>. Para la mejor experiencia, 
                       usa Modo IA con internet.
                     </p>
@@ -396,7 +396,7 @@ export const HowItWorks: React.FC = () => {
 
         {/* CTA mejorado */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-white to-orange-50 rounded-3xl p-12 shadow-2xl border-4 border-orange-200">
+          <div className="bg-gradient-to-r from-white to-blue-50 rounded-3xl p-12 shadow-2xl border-4 border-blue-200">
             <div className="text-6xl mb-6">🚀</div>
             <h3 className="text-4xl font-bold text-gray-800 mb-6">¿Listo para empezar?</h3>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto">
@@ -405,7 +405,7 @@ export const HowItWorks: React.FC = () => {
             </p>
             <button
               onClick={() => navigate('/')}
-              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-6 px-12 rounded-2xl shadow-2xl transition-all duration-300 active:scale-95 text-2xl border-4 border-orange-300 hover:border-orange-400 focus:ring-8 focus:ring-orange-200"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-6 px-12 rounded-2xl shadow-2xl transition-all duration-300 active:scale-95 text-2xl border-4 border-blue-300 hover:border-blue-400 focus:ring-8 focus:ring-blue-200"
               aria-label="Ir a LibroVoz para empezar a usar la aplicación"
             >
               🎧 ¡Empezar a Usar LibroVoz Ahora!

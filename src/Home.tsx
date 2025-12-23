@@ -752,7 +752,7 @@ const Home: React.FC = () => {
               </div>
 
               <div className="bg-white p-4 sm:p-8 rounded-[2.5rem] shadow-2xl border-4 border-white relative group mx-4">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#fd1b17]/20 to-orange-500/20 rounded-[3rem] blur-2xl opacity-50"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#1e40af]/20 to-blue-500/20 rounded-[3rem] blur-2xl opacity-50"></div>
                 <div className="relative space-y-6">
                   <FilePond
                     onupdatefiles={(fileItems) => { if (fileItems.length > 0) handleFileUpload({ target: { files: [fileItems[0].file] } } as any); }}
@@ -786,7 +786,7 @@ const Home: React.FC = () => {
 
                   {/* Local */}
                   <div className="bg-white/70 p-6 rounded-[2rem] border-2 border-white shadow-sm flex flex-col items-center text-center space-y-3 backdrop-blur-sm">
-                    <div className="p-3 bg-orange-100 text-orange-600 rounded-2xl mb-2">
+                    <div className="p-3 bg-blue-100 text-blue-600 rounded-2xl mb-2">
                       <Book size={32} />
                     </div>
                     <h4 className="font-black text-stone-900 text-lg">Modo Local</h4>
@@ -815,7 +815,7 @@ const Home: React.FC = () => {
               <>
                 <div className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" onClick={() => { setShowIndex(false); setShowHistory(false); }} />
                 <div className={`fixed top-0 left-0 h-full w-[85%] max-w-xs z-50 shadow-2xl ${drawerBg} overflow-hidden flex flex-col animate-in slide-in-from-left duration-300`}>
-                  <div className="p-4 flex justify-between items-center bg-[#fd1b17] text-white">
+                  <div className="p-4 flex justify-between items-center bg-[#1e40af] text-white">
                     <h2 className="text-base font-bold uppercase tracking-wider">{showIndex ? 'Índice' : 'Historial'}</h2>
                     <button onClick={() => { setShowIndex(false); setShowHistory(false); }} className="p-2 rounded-full hover:bg-white/20"><X size={24} /></button>
                   </div>
@@ -823,7 +823,7 @@ const Home: React.FC = () => {
                     {showIndex ? (
                       <div className="grid grid-cols-4 gap-2 p-3">
                         {pages.map((p) => (
-                          <button key={p.pageNumber} onClick={() => handleIndexJump(p.pageNumber)} className={`aspect-square flex items-center justify-center rounded text-sm font-bold ${activePage === p.pageNumber ? 'bg-[#fd1b17] text-white' : 'bg-white text-stone-400 border border-stone-100'}`}>{p.pageNumber}</button>
+                          <button key={p.pageNumber} onClick={() => handleIndexJump(p.pageNumber)} className={`aspect-square flex items-center justify-center rounded text-sm font-bold ${activePage === p.pageNumber ? 'bg-[#1e40af] text-white' : 'bg-white text-stone-400 border border-stone-100'}`}>{p.pageNumber}</button>
                         ))}
                       </div>
                     ) : (

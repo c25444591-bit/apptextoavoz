@@ -62,7 +62,7 @@ export const HowToUploadModal: React.FC<HowToUploadModalProps> = ({ isOpen, onCl
                 <div className="p-8 sm:p-10 space-y-8">
                     {steps.map((step, index) => (
                         <div key={index} className="flex gap-6 items-start group">
-                            <div className={`shrink-0 w-16 h-16 rounded-3xl ${theme === 'high-contrast' ? 'bg-yellow-400 text-black' : 'bg-stone-50 text-[#fd1b17]'} flex items-center justify-center border-2 ${borderColor} shadow-inner group-hover:scale-110 transition-transform`}>
+                            <div className={`shrink-0 w-16 h-16 rounded-3xl ${theme === 'high-contrast' ? 'bg-yellow-400 text-black' : 'bg-stone-50 text-[#1e40af]'} flex items-center justify-center border-2 ${borderColor} shadow-inner group-hover:scale-110 transition-transform`}>
                                 {step.icon}
                             </div>
                             <div className="space-y-1">

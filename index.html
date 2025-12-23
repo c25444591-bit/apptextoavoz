@@ -144,7 +144,7 @@
       const forceControlsVisibility = () => {
         const controles = document.getElementById('audio-controller-fixed') ||
           document.querySelector('.controles-barra') ||
-          document.querySelector('[class*="from-orange-500"]');
+          document.querySelector('[class*="from-blue-500"]');
 
         if (controles) {
           console.log('🎯 Forzando visibilidad de controles en Android');
@@ -231,7 +231,7 @@
       console.log('Ancho body:', document.body.scrollWidth);
       console.log('User Agent:', navigator.userAgent);
 
-      const audio = document.querySelector('[class*="from-orange-500"]') ||
+      const audio = document.querySelector('[class*="from-blue-500"]') ||
         document.getElementById('audio-controller-fixed');
       if (audio) {
         const rect = audio.getBoundingClientRect();
