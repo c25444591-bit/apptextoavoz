@@ -703,8 +703,8 @@ const Home: React.FC = () => {
             <div className="flex items-center gap-2">
               {!isLanding ? (
                 <>
-                  <button onClick={() => setShowIndex(!showIndex)} className={`p-2.5 rounded-xl border ${showIndex ? 'bg-white text-[#fd1b17]' : 'bg-white text-stone-600'}`}><List size={22} /></button>
-                  <button onClick={handleSaveToLibrary} className="bg-[#fd1b17] text-white px-4 py-2 rounded-xl font-bold text-xs"><Save size={18} /></button>
+                  <button onClick={() => setShowIndex(!showIndex)} className={`p-2.5 rounded-xl border ${showIndex ? 'bg-white text-[#1e40af]' : 'bg-white text-stone-600'}`}><List size={22} /></button>
+                  <button onClick={handleSaveToLibrary} className="bg-[#1e40af] text-white px-4 py-2 rounded-xl font-bold text-xs"><Save size={18} /></button>
                   <button onClick={() => setShowSettings(!showSettings)} className="p-2.5 rounded-xl bg-white border"><Settings size={22} /></button>
                 </>
               ) : (
@@ -741,7 +741,7 @@ const Home: React.FC = () => {
             <div className="w-full max-w-xl text-center space-y-8 animate-in fade-in zoom-in duration-700">
               <div className="space-y-4">
                 <div className="inline-block p-4 bg-white rounded-3xl shadow-2xl mb-4">
-                  <BookOpen size={48} className="text-[#fd1b17]" />
+                  <BookOpen size={48} className="text-[#1e40af]" />
                 </div>
                 <h2 className="text-4xl sm:text-6xl font-black text-stone-900 tracking-tight leading-none px-4">
                   Tu biblioteca <br /> personal, <span className="text-[#1e40af]">narrada con IA</span>
