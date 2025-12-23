@@ -22,8 +22,8 @@
 }
 
 .filepond--root.filepond-modern .filepond--label-action {
-    text-decoration-color: #fd1b17;
-    color: #fd1b17;
+    text-decoration-color: #1e40af;
+    color: #1e40af;
 }
 
 /* Custom styles if needed */
@@ -116,12 +116,7 @@ body {
 
 /* Accessibility improvements */
 .voice-control-btn:focus {
-    outline: 2px solid #ff6600;
-    outline-offset: 2px;
-}
-
-.voice-control-btn:focus-visible {
-    outline: 2px solid #ff6600;
+    outline: 2px solid #1e40af;
     outline-offset: 2px;
 }
 

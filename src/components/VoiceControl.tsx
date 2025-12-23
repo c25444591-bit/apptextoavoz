@@ -113,8 +113,8 @@ export const VoiceControl: React.FC<VoiceControlProps> = ({ onCommand, className
       {showHelp && (
         <div className="voice-help-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
           <div className="modal-overlay" onClick={() => setShowHelp(false)} />
-          <div className="modal-content border-4 border-[#fd1b17]">
-            <div className="modal-header bg-[#fd1b17] text-white">
+          <div className="modal-content border-4 border-[#1e40af]">
+            <div className="modal-header bg-[#1e40af] text-white">
               <h3 id="modal-title" className="text-2xl font-black uppercase tracking-tight">Comandos de Voz Disponibles</h3>
               <button
                 onClick={() => setShowHelp(false)}
@@ -127,7 +127,7 @@ export const VoiceControl: React.FC<VoiceControlProps> = ({ onCommand, className
             <div className="modal-body bg-white">
               <div className="commands-grid">
                 <div className="command-category">
-                  <h4 className="flex items-center gap-2 text-[28px] font-black border-b-4 border-orange-100 pb-3 mb-6 text-stone-900">📖 Navegación</h4>
+                  <h4 className="flex items-center gap-2 text-[28px] font-black border-b-4 border-blue-100 pb-3 mb-6 text-stone-900">📖 Navegación</h4>
                   <ul className="space-y-4">
                     <li className="text-xl font-bold text-stone-900 bg-stone-50 p-4 rounded-2xl border-2 border-stone-100 italic">"siguiente página"</li>
                     <li className="text-xl font-bold text-stone-900 bg-stone-50 p-4 rounded-2xl border-2 border-stone-100 italic">"página anterior"</li>
@@ -136,7 +136,7 @@ export const VoiceControl: React.FC<VoiceControlProps> = ({ onCommand, className
                 </div>
 
                 <div className="command-category">
-                  <h4 className="flex items-center gap-2 text-[28px] font-black border-b-4 border-orange-100 pb-3 mb-6 text-stone-900">🔊 Audio</h4>
+                  <h4 className="flex items-center gap-2 text-[28px] font-black border-b-4 border-blue-100 pb-3 mb-6 text-stone-900">🔊 Audio</h4>
                   <ul className="space-y-4">
                     <li className="text-xl font-bold text-stone-900 bg-stone-50 p-4 rounded-2xl border-2 border-stone-100 italic">"leer texto" / "reproducir"</li>
                     <li className="text-xl font-bold text-stone-900 bg-stone-50 p-4 rounded-2xl border-2 border-stone-100 italic">"pausar" / "detener"</li>
@@ -146,7 +146,7 @@ export const VoiceControl: React.FC<VoiceControlProps> = ({ onCommand, className
                 </div>
 
                 <div className="command-category">
-                  <h4 className="flex items-center gap-2 text-[28px] font-black border-b-4 border-orange-100 pb-3 mb-6 text-stone-900">👁️ Vista</h4>
+                  <h4 className="flex items-center gap-2 text-[28px] font-black border-b-4 border-blue-100 pb-3 mb-6 text-stone-900">👁️ Vista</h4>
                   <ul className="space-y-4">
                     <li className="text-xl font-bold text-stone-900 bg-stone-50 p-4 rounded-2xl border-2 border-stone-100 italic">"zoom más grande"</li>
                     <li className="text-xl font-bold text-stone-900 bg-stone-50 p-4 rounded-2xl border-2 border-stone-100 italic">"alto contraste"</li>
@@ -155,7 +155,7 @@ export const VoiceControl: React.FC<VoiceControlProps> = ({ onCommand, className
                 </div>
 
                 <div className="command-category">
-                  <h4 className="flex items-center gap-2 text-[28px] font-black border-b-4 border-orange-100 pb-3 mb-6 text-stone-900">📚 General</h4>
+                  <h4 className="flex items-center gap-2 text-[28px] font-black border-b-4 border-blue-100 pb-3 mb-6 text-stone-900">📚 General</h4>
                   <ul className="space-y-4">
                     <li className="text-xl font-bold text-stone-900 bg-stone-50 p-4 rounded-2xl border-2 border-stone-100 italic">"donde estoy" (Orientación)</li>
                     <li className="text-xl font-bold text-stone-900 bg-stone-50 p-4 rounded-2xl border-2 border-stone-100 italic">"repite" (Repite mensaje)</li>
