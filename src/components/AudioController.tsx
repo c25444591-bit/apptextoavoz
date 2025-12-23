@@ -411,7 +411,7 @@ export const AudioController: React.FC<AudioControllerProps> = ({
                 style={{
                   flex: 1,
                   padding: '8px',
-                  backgroundColor: !useCloudTTS ? '#f97316' : 'rgba(255,255,255,0.2)',
+                  backgroundColor: !useCloudTTS ? '#1e40af' : 'rgba(255,255,255,0.2)',
                   color: 'white',
                   border: 'none',
                   borderRadius: '4px',
@@ -425,7 +425,7 @@ export const AudioController: React.FC<AudioControllerProps> = ({
                 style={{
                   flex: 1,
                   padding: '8px',
-                  backgroundColor: useCloudTTS ? '#f97316' : 'rgba(255,255,255,0.2)',
+                  backgroundColor: useCloudTTS ? '#1e40af' : 'rgba(255,255,255,0.2)',
                   color: 'white',
                   border: 'none',
                   borderRadius: '4px',

@@ -663,7 +663,7 @@ const Home: React.FC = () => {
 
   const handleCloseVoiceIntro = () => { setShowVoiceIntro(false); localStorage.setItem('librovoz-voice-intro-seen', 'dismissed'); };
 
-  const headerBg = theme === 'high-contrast' ? 'bg-black border-yellow-900' : theme === 'dark' ? 'bg-[#121212] border-stone-800' : 'bg-[#fd1b17]/90 border-[#e5e3dc]';
+  const headerBg = theme === 'high-contrast' ? 'bg-black border-yellow-900' : theme === 'dark' ? 'bg-[#121212] border-stone-800' : 'bg-[#1e40af]/90 border-[#e5e3dc]';
   const headerText = 'text-white';
   const drawerBg = theme === 'high-contrast' ? 'bg-stone-950 border-r border-yellow-900' : theme === 'dark' ? 'bg-stone-900 border-r border-stone-700' : 'bg-[#f5f4f0] border-r border-[#e5e3dc]';
 
