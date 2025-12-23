@@ -695,7 +695,7 @@ const Home: React.FC = () => {
                 <Headphones className="text-[#1e40af]" size={24} />
               </div>
               <div>
-                <h1 className={`text-lg sm:text-2xl font-black tracking-tighter ${headerText}`}>LIBRO<span className="opacity-80">VOZ</span> <span className="text-[10px] font-normal opacity-50">v1.1 Blue</span></h1>
+                <h1 className={`text-lg sm:text-2xl font-black tracking-tighter ${headerText}`}>LIBRO<span className="opacity-80">VOZ</span> <span className="text-[10px] font-normal opacity-50">v1.2 Blue Deploy Test</span></h1>
                 <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest leading-none">Accesible</p>
               </div>
             </div>
