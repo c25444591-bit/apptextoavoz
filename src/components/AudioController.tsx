@@ -16,6 +16,7 @@ interface AudioControllerProps {
   onVoiceChange: (voiceURI: string) => void;
   onPlaybackRateChange: (rate: number) => void;
   onPrevPage: () => void;
+  onNextPage: () => void;
   onToggleCloudMode: (useCloud: boolean) => void;
   onTTSModeChange?: (mode: 'local' | 'piper' | 'cloud') => void;
   onFormatChange: (format: AudioFormat) => void;
