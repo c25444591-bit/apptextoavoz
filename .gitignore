@@ -1,0 +1,7 @@
+.vercel
+node_modules
+.env
+dist
+backup-old/
+reference-project/
+.vs/

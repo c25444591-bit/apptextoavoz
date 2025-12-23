@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #1e40af;
+    --color-secondary: #ffffff;
+}
+
+/* FilePond Modern Theme Overrides */
+.filepond--root.filepond-modern {
+    font-family: 'Inter', sans-serif;
+}
+
+.filepond--root.filepond-modern .filepond--panel-root {
+    background-color: #fffaf0;
+    border: 2px dashed #fcd34d;
+    border-radius: 2rem;
+}
+
+.filepond--root.filepond-modern .filepond--drop-label {
+    color: #4b5563;
+    font-weight: 700;
+}
+
+.filepond--root.filepond-modern .filepond--label-action {
+    text-decoration-color: #fd1b17;
+    color: #fd1b17;
+}
+
+/* Custom styles if needed */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Increase base font size for readability */
+body {
+    font-size: 1.25rem;
+    line-height: 1.75;
+}
+
+/* Larger paragraph text for accessibility */
+.book-text p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Mejores espaciados de texto usando margin-block */
+.book-text p {
+    margin-block: 1lh;
+}
+
+.book-text p:first-child {
+    margin-block-start: 0;
+}
+
+.book-text p:last-child {
+    margin-block-end: 0;
+}
+
+/* Espaciado coherente para listas */
+.book-text ul,
+.book-text ol {
+    margin-block: 1lh;
+    padding-inline-start: 1.5em;
+}
+
+.book-text li {
+    margin-block: 0.5lh;
+}
+
+/* Espaciado para encabezados */
+.book-text h1,
+.book-text h2,
+.book-text h3,
+.book-text h4,
+.book-text h5,
+.book-text h6 {
+    margin-block: 1.5lh 0.5lh;
+    font-weight: 600;
+}
+
+/* Espaciado para citas */
+.book-text blockquote {
+    margin-block: 1lh;
+    padding-inline-start: 1em;
+    border-inline-start: 3px solid currentColor;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Voice Control Styles */
+.voice-control-overlay {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.voice-control-overlay:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark theme support for voice control */
+@media (prefers-color-scheme: dark) {
+    .voice-control-overlay {
+        background: rgba(30, 30, 30, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .voice-control-overlay:hover {
+        background: rgba(40, 40, 40, 1);
+    }
+}
+
+/* Accessibility improvements */
+.voice-control-btn:focus {
+    outline: 2px solid #ff6600;
+    outline-offset: 2px;
+}
+
+.voice-control-btn:focus-visible {
+    outline: 2px solid #ff6600;
+    outline-offset: 2px;
+}
+
+/* Animation for voice status */
+@keyframes voice-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.voice-status.listening {
+    animation: voice-pulse 1.5s ease-in-out infinite;
+}
+
+/* High Contrast mode helper */
+[data-theme='high-contrast'] {
+    --color-primary: #ffffff;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+[data-theme='high-contrast'] .bg-white {
+    background-color: #000000 !important;
+    border: 2px solid white !important;
+}
+
+[data-theme='high-contrast'] .text-stone-600,
+[data-theme='high-contrast'] .text-stone-900 {
+    color: #ffffff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .voice-control-overlay {
+        padding: 6px 10px;
+        border-radius: 10px;
+    }
+}
