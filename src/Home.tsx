@@ -878,6 +878,8 @@ const Home: React.FC = () => {
                 onTTSModeChange={handleTTSModeChange}
                 onFormatChange={setAudioFormat}
                 onRecordVoice={handleRecordVoice}
+                onLogin={handleLogin}
+                user={user}
                 onExitReader={() => {
                   stopCloudAudio();
                   setIsPlaying(false);

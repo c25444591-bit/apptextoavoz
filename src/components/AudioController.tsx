@@ -16,12 +16,13 @@ interface AudioControllerProps {
   onVoiceChange: (voiceURI: string) => void;
   onPlaybackRateChange: (rate: number) => void;
   onPrevPage: () => void;
-  onNextPage: () => void;
   onToggleCloudMode: (useCloud: boolean) => void;
   onTTSModeChange?: (mode: 'local' | 'piper' | 'cloud') => void;
   onFormatChange: (format: AudioFormat) => void;
   onRecordVoice: (base64Audio: string | null) => void;
   onExitReader: () => void;
+  onLogin: () => void;
+  user: any;
   canGoNext: boolean;
   canGoPrev: boolean;
 }
@@ -46,6 +47,8 @@ export const AudioController: React.FC<AudioControllerProps> = ({
   onFormatChange,
   onRecordVoice,
   onExitReader,
+  onLogin,
+  user,
   canGoNext,
   canGoPrev
 }) => {
@@ -338,24 +341,36 @@ export const AudioController: React.FC<AudioControllerProps> = ({
             ⚙
           </button>
 
-          {/* Ayuda para Voces Samsung */}
-          <button
-            onClick={() => window.open('/samsung-voces', '_blank')}
-            style={{
+          {/* Ayuda / Login */}
+          {user ? (
+            <div style={{
               width: '44px',
               height: '44px',
               borderRadius: '50%',
-              border: 'none',
-              backgroundColor: 'rgba(255,255,255,0.3)',
-              color: 'white',
-              fontSize: '18px',
-              cursor: 'pointer',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
-            }}
-            title="Guía para instalar voces premium en Samsung"
-          >
-            ℹ️
-          </button>
+              overflow: 'hidden',
+              border: '2px solid white'
+            }}>
+              <img src={user.photoURL || ''} alt="User" style={{ width: '100%', height: '100%' }} />
+            </div>
+          ) : (
+            <button
+              onClick={onLogin}
+              style={{
+                width: '44px',
+                height: '44px',
+                borderRadius: '50%',
+                border: 'none',
+                backgroundColor: '#ef4444',
+                color: 'white',
+                fontSize: '10px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+              }}
+            >
+              LOGIN
+            </button>
+          )}
 
         </div>
 
@@ -613,30 +628,17 @@ export const AudioController: React.FC<AudioControllerProps> = ({
             <Settings size={20} color="white" />
           </button>
 
-          {/* Botón Ayuda Samsung - Solo en dispositivos Samsung */}
-          {isSamsung && (
+          {/* Botón Login/User - NUEVO */}
+          {user ? (
+            <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+              <img src={user.photoURL || ''} alt="" className="w-full h-full object-cover" />
+            </div>
+          ) : (
             <button
-              onClick={() => window.open('/samsung-voces', '_blank')}
-              style={{
-                padding: '12px',
-                backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                borderRadius: '50%',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-                boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
-              }}
-              onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.95)'}
-              onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-              aria-label="Guía para instalar voces premium en Samsung"
-              title="Guía para voces premium"
+              onClick={onLogin}
+              className="px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold transition-colors shadow-lg"
             >
-              <span style={{ fontSize: '18px' }}>ℹ️</span>
+              LOGIN
             </button>
           )}
 
