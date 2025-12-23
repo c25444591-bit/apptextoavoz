@@ -14,12 +14,15 @@ import { ttsService } from './services/ttsService';
 import { piperService } from './services/piperService';
 import { generateSpeech } from './services/geminiService';
 import { base64ToUint8Array, decodeAudioData } from './services/audioUtils';
-import { Headphones, Settings, ZoomIn, ZoomOut, Eye, List, X, ChevronRight, Clock, History, ScrollText, Book, Upload, FileText, Loader2, AlertCircle, CheckCircle, Grid, ListTree, BookOpen, Shield, Save, Library, Download, Mic } from 'lucide-react';
+import { Headphones, Settings, ZoomIn, ZoomOut, Eye, List, X, ChevronRight, Clock, History, ScrollText, Book, Upload, FileText, Loader2, AlertCircle, CheckCircle, Grid, ListTree, BookOpen, Shield, Save, Library, Download, Mic, Cloud } from 'lucide-react';
 import { VoiceControl } from './components/VoiceControl';
 import { VoiceControlIntro } from './components/VoiceControlIntro';
 import { voiceControlService } from './services/voiceControlService';
 import { HowToUploadModal } from './components/HowToUploadModal';
 import { compressPDFAutomatically, shouldCompressPDF } from './utils/pdfCompressor';
+// Firebase Auth
+import { signInWithGoogle, signOut, onAuthStateChanged, AuthUser } from './services/authService';
+import { saveBookToCloud, getBooksFromCloud, CloudBook } from './services/cloudLibraryService';
 
 // FilePond Imports
 import { FilePond, registerPlugin } from 'react-filepond';
@@ -141,6 +144,49 @@ const Home: React.FC = () => {
   // Swipe Gesture State
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Auth State
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [isAuthLoading, setIsAuthLoading] = useState(true);
+
+  // Auth Listener
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+      setIsAuthLoading(false);
+
+      if (currentUser) {
+        showToast(`Bienvenido, ${currentUser.displayName || 'Usuario'}`, 'success');
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogin = async () => {
+    try {
+      showToast('Iniciando sesión...', 'info');
+      const user = await signInWithGoogle();
+      if (!user) {
+        showToast('No se pudo iniciar sesión', 'error');
+      }
+    } catch (error) {
+      showToast('Error al iniciar sesión', 'error');
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      showToast('Sesión cerrada', 'success');
+      // Limpiar estado de libro actual si se desea?
+      // setPages([]);
+      // setBookTitle("");
+    } catch (error) {
+      showToast('Error al cerrar sesión', 'error');
+    }
+  };
+
+
 
   // Refs
   const activePageRef = useRef<number | null>(null);
@@ -319,8 +365,20 @@ const Home: React.FC = () => {
 
     try {
       await saveBookToDB(bookData);
+
+      // Save to Cloud if logged in
+      if (user) {
+        saveBookToCloud(user.uid, bookData).then(() => {
+          showToast("☁️ Guardado en nube y dispositivo", "success");
+        }).catch((err) => {
+          console.error("Cloud save error:", err);
+          showToast("⚠️ Guardado localmente. Error en nube.", "info");
+        });
+      } else {
+        showToast("Libro guardado en tu biblioteca personal", "success");
+      }
+
       setCurrentBookId(bookId);
-      showToast("Libro guardado en tu biblioteca personal", "success");
     } catch (error) {
       console.error("Error saving book:", error);
       showToast("Error al guardar el libro", "error");
@@ -620,6 +678,8 @@ const Home: React.FC = () => {
           onLoadBook={handleLoadFromLibrary}
           currentBookId={currentBookId}
           theme={theme}
+          user={user}
+          onLogin={handleLogin}
         />
 
         <HowToUploadModal
@@ -710,23 +770,40 @@ const Home: React.FC = () => {
                 </div>
               </div>
 
-              <div className="w-full max-w-2xl mt-8">
-                <h3 className="text-xl font-black text-stone-900 mb-6 uppercase tracking-wider">Inicio Rápido</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="bg-white/60 p-6 rounded-[2rem] border-2 border-white shadow-sm flex flex-col items-center text-center space-y-2">
-                    <Upload size={24} className="text-[#fd1b17]" />
-                    <p className="font-black text-stone-900 text-sm">1. SUBIR</p>
-                    <p className="text-[10px] font-bold text-stone-500">Elige un PDF</p>
+              <div className="w-full max-w-4xl mt-8">
+                <h3 className="text-xl font-black text-stone-900 mb-6 uppercase tracking-wider text-center">Tú eliges cómo leer</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Nube */}
+                  <div className="bg-white/70 p-6 rounded-[2rem] border-2 border-white shadow-sm flex flex-col items-center text-center space-y-3 backdrop-blur-sm">
+                    <div className="p-3 bg-blue-100 text-blue-600 rounded-2xl mb-2">
+                      <Cloud size={32} />
+                    </div>
+                    <h4 className="font-black text-stone-900 text-lg">Modo Nube</h4>
+                    <p className="text-xs font-medium text-stone-500 leading-relaxed px-4">
+                      Inicia sesión con WiFi para guardar tus libros y acceder desde cualquier dispositivo.
+                    </p>
                   </div>
-                  <div className="bg-white/60 p-6 rounded-[2rem] border-2 border-white shadow-sm flex flex-col items-center text-center space-y-2">
-                    <FileText size={24} className="text-orange-600" />
-                    <p className="font-black text-stone-900 text-sm">2. PROCESAR</p>
-                    <p className="text-[10px] font-bold text-stone-500">IA lee el texto</p>
+
+                  {/* Local */}
+                  <div className="bg-white/70 p-6 rounded-[2rem] border-2 border-white shadow-sm flex flex-col items-center text-center space-y-3 backdrop-blur-sm">
+                    <div className="p-3 bg-orange-100 text-orange-600 rounded-2xl mb-2">
+                      <Book size={32} />
+                    </div>
+                    <h4 className="font-black text-stone-900 text-lg">Modo Local</h4>
+                    <p className="text-xs font-medium text-stone-500 leading-relaxed px-4">
+                      Sube PDFs directamente a tu celular. Se guardan en la memoria para leer <b>sin internet</b>.
+                    </p>
                   </div>
-                  <div className="bg-white/60 p-6 rounded-[2rem] border-2 border-white shadow-sm flex flex-col items-center text-center space-y-2">
-                    <Headphones size={24} className="text-blue-600" />
-                    <p className="font-black text-stone-900 text-sm">3. ESCUCHAR</p>
-                    <p className="text-[10px] font-bold text-stone-500">Usa voz o botones</p>
+
+                  {/* Offline */}
+                  <div className="bg-white/70 p-6 rounded-[2rem] border-2 border-white shadow-sm flex flex-col items-center text-center space-y-3 backdrop-blur-sm">
+                    <div className="p-3 bg-green-100 text-green-600 rounded-2xl mb-2">
+                      <Download size={32} />
+                    </div>
+                    <h4 className="font-black text-stone-900 text-lg">Descargar</h4>
+                    <p className="text-xs font-medium text-stone-500 leading-relaxed px-4">
+                      ¿Sin datos? Descarga tus libros de la nube al celular con WiFi y escúchalos después offline.
+                    </p>
                   </div>
                 </div>
               </div>
