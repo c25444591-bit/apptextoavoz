@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Pause, Play, RotateCcw, Settings, Volume2, VolumeX, SkipBack, SkipForward, Cloud, Laptop, Mic, StopCircle, Trash2 } from 'lucide-react';
+import { Pause, Play, RotateCcw, Settings, Volume2, VolumeX, SkipBack, SkipForward, Cloud, Laptop, Mic, StopCircle, Trash2, Library } from 'lucide-react';
 import { VoiceName, AudioFormat } from '../types';
 
 interface AudioControllerProps {
@@ -21,6 +21,7 @@ interface AudioControllerProps {
   onTTSModeChange?: (mode: 'local' | 'piper' | 'cloud') => void;
   onFormatChange: (format: AudioFormat) => void;
   onRecordVoice: (base64Audio: string | null) => void;
+  onExitReader: () => void;
   canGoNext: boolean;
   canGoPrev: boolean;
 }
@@ -44,6 +45,7 @@ export const AudioController: React.FC<AudioControllerProps> = ({
   onTTSModeChange,
   onFormatChange,
   onRecordVoice,
+  onExitReader,
   canGoNext,
   canGoPrev
 }) => {
@@ -238,6 +240,24 @@ export const AudioController: React.FC<AudioControllerProps> = ({
           justifyContent: 'center',
           gap: '16px'
         }}>
+
+          {/* Salir / Biblioteca */}
+          <button
+            onClick={onExitReader}
+            aria-label="Volver a la biblioteca"
+            style={{
+              width: '44px',
+              height: '44px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: 'rgba(255,255,255,0.2)',
+              color: 'white',
+              fontSize: '18px',
+              cursor: 'pointer'
+            }}
+          >
+            🏠
+          </button>
 
           {/* Anterior */}
           <button
@@ -465,6 +485,26 @@ export const AudioController: React.FC<AudioControllerProps> = ({
             margin: '0 auto 12px auto'
           }}
         >
+
+          {/* Botón Salir / Biblioteca - NUEVO */}
+          <button
+            onClick={onExitReader}
+            style={{
+              padding: '12px',
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              borderRadius: '50%',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0
+            }}
+            aria-label="Volver al inicio"
+          >
+            <Library size={20} color="white" />
+          </button>
 
           {/* Botón Anterior */}
           <button

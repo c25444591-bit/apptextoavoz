@@ -878,6 +878,14 @@ const Home: React.FC = () => {
                 onTTSModeChange={handleTTSModeChange}
                 onFormatChange={setAudioFormat}
                 onRecordVoice={handleRecordVoice}
+                onExitReader={() => {
+                  stopCloudAudio();
+                  setIsPlaying(false);
+                  setIsPaused(false);
+                  setActivePage(null);
+                  setIsLanding(true);
+                  if (activePageRef.current) addToHistory(activePageRef.current);
+                }}
                 canGoNext={pages.findIndex(p => p.pageNumber === activePage) < pages.length - 1}
                 canGoPrev={pages.findIndex(p => p.pageNumber === activePage) > 0}
               />
