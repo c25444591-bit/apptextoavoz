@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import { AdminPage } from './pages/AdminPage';
 import { HowItWorks } from './pages/HowItWorks';
-import { SamsungVoiceGuide } from './pages/SamsungVoiceGuide';
+// import { SamsungVoiceGuide } from './pages/SamsungVoiceGuide';
 
 const App: React.FC = () => {
     return (
@@ -13,7 +13,7 @@ const App: React.FC = () => {
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/como-funciona" element={<HowItWorks />} />
                 <Route path="/how-it-works" element={<HowItWorks />} />
-                <Route path="/samsung-voces" element={<SamsungVoiceGuide />} />
+                {/* <Route path="/samsung-voces" element={<SamsungVoiceGuide />} /> */}
             </Routes>
         </BrowserRouter>
     );

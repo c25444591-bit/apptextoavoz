@@ -9,7 +9,7 @@ export const piperService = {
         utterance.rate = rate;
         utterance.lang = 'es-ES';
         if (onEnd) {
-            utterance.onend = onEnd;
+            utterance.onend = () => onEnd();
         }
         speechSynthesis.speak(utterance);
     },
