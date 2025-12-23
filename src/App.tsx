@@ -13,7 +13,6 @@ const App: React.FC = () => {
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/como-funciona" element={<HowItWorks />} />
                 <Route path="/how-it-works" element={<HowItWorks />} />
-                {/* <Route path="/samsung-voces" element={<SamsungVoiceGuide />} /> */}
             </Routes>
         </BrowserRouter>
     );

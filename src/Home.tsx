@@ -692,10 +692,10 @@ const Home: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-3 cursor-pointer group" onClick={() => setIsLanding(true)} role="button">
               <div className="bg-white p-1.5 sm:p-2 rounded-xl shadow-inner group-hover:scale-110 transition-transform">
-                <Headphones className="text-[#fd1b17]" size={24} />
+                <Headphones className="text-[#1e40af]" size={24} />
               </div>
               <div>
-                <h1 className={`text-lg sm:text-2xl font-black tracking-tighter ${headerText}`}>LIBRO<span className="opacity-80">VOZ</span></h1>
+                <h1 className={`text-lg sm:text-2xl font-black tracking-tighter ${headerText}`}>LIBRO<span className="opacity-80">VOZ</span> <span className="text-[10px] font-normal opacity-50">v1.1 Blue</span></h1>
                 <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest leading-none">Accesible</p>
               </div>
             </div>
@@ -708,7 +708,7 @@ const Home: React.FC = () => {
                   <button onClick={() => setShowSettings(!showSettings)} className="p-2.5 rounded-xl bg-white border"><Settings size={22} /></button>
                 </>
               ) : (
-                <button onClick={() => setShowLibrary(true)} className="p-2.5 rounded-xl bg-white text-orange-600 border"><Library size={22} /></button>
+                <button onClick={() => setShowLibrary(true)} className="p-2.5 rounded-xl bg-white text-blue-600 border"><Library size={22} /></button>
               )}
             </div>
           </div>
@@ -744,7 +744,7 @@ const Home: React.FC = () => {
                   <BookOpen size={48} className="text-[#fd1b17]" />
                 </div>
                 <h2 className="text-4xl sm:text-6xl font-black text-stone-900 tracking-tight leading-none px-4">
-                  Tu biblioteca <br /> personal, <span className="text-[#fd1b17]">narrada con IA</span>
+                  Tu biblioteca <br /> personal, <span className="text-[#1e40af]">narrada con IA</span>
                 </h2>
                 <p className="text-lg text-stone-600 px-6 max-w-md mx-auto">
                   Sube tus documentos y escucha con voces naturales y control por voz total.
@@ -757,14 +757,14 @@ const Home: React.FC = () => {
                   <FilePond
                     onupdatefiles={(fileItems) => { if (fileItems.length > 0) handleFileUpload({ target: { files: [fileItems[0].file] } } as any); }}
                     acceptedFileTypes={['application/pdf']}
-                    labelIdle='Arrastra tu PDF aquí o <span class="filepond--label-action">Búscalo</span><br/><small><a href="#" id="open-tutorial" style="color:#fd1b17; font-weight:bold;">¿Cómo subir?</a></small>'
+                    labelIdle='Arrastra tu PDF aquí o <span class="filepond--label-action">Búscalo</span><br/><small><a href="#" id="open-tutorial" style="color:#1e40af; font-weight:bold;">¿Cómo subir?</a></small>'
                     oninit={() => {
                       const link = document.getElementById('open-tutorial');
                       if (link) link.onclick = (e) => { e.preventDefault(); setShowHowToUpload(true); };
                     }}
                   />
                   <div className="grid grid-cols-2 gap-4">
-                    <button onClick={() => setShowLibrary(true)} className="p-5 bg-orange-50 rounded-2xl border-2 border-orange-100 text-orange-900 font-bold flex flex-col items-center gap-2"><Library size={28} />Biblioteca</button>
+                    <button onClick={() => setShowLibrary(true)} className="p-5 bg-blue-50 rounded-2xl border-2 border-blue-100 text-blue-900 font-bold flex flex-col items-center gap-2"><Library size={28} />Biblioteca</button>
                     <button onClick={loadDemoBook} className="p-5 bg-stone-900 rounded-2xl border-2 border-stone-800 text-white font-bold flex flex-col items-center gap-2"><Book size={28} />Demo</button>
                   </div>
                 </div>
