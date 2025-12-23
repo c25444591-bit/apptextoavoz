@@ -1,7 +1,7 @@
 // Piper Service Stub - TTS using native speech synthesis
 // This is a placeholder for future Piper TTS integration
 
-export const piperService = {
+export const nativeTtsService = {
     isSupported: () => typeof speechSynthesis !== 'undefined',
 
     speak: (text: string, rate: number = 1.0, onEnd?: () => void) => {

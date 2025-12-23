@@ -11,7 +11,7 @@ import { PageData, Theme, ViewMode, VoiceName, AudioFormat, HistoryItem, TOCItem
 import { BookData } from './types/library';
 import { saveBookToDB } from './utils/db';
 import { ttsService } from './services/ttsService';
-import { piperService } from './services/piperService';
+import { nativeTtsService } from './services/nativeTtsService';
 import { generateSpeech } from './services/geminiService';
 import { base64ToUint8Array, decodeAudioData } from './services/audioUtils';
 import { Headphones, Settings, ZoomIn, ZoomOut, Eye, List, X, ChevronRight, Clock, History, ScrollText, Book, Upload, FileText, Loader2, AlertCircle, CheckCircle, Grid, ListTree, BookOpen, Shield, Save, Library, Download, Mic, Cloud } from 'lucide-react';
@@ -428,7 +428,7 @@ const Home: React.FC = () => {
     addToHistory(page.pageNumber);
     ttsService.cancel();
     stopCloudAudio();
-    piperService.stop();
+    nativeTtsService.stop();
 
     setIsPaused(false);
     setActivePage(page.pageNumber);
@@ -522,12 +522,12 @@ const Home: React.FC = () => {
   const handleTogglePlay = async () => {
     const currentPage = pages.find(p => p.pageNumber === activePage);
     if (isPlaying && !isPaused) {
-      if (ttsMode === 'piper') await piperService.pause();
+      if (ttsMode === 'piper') await nativeTtsService.pause();
       else if (ttsMode === 'cloud' && audioCtxRef.current) await audioCtxRef.current.suspend();
       else ttsService.pause();
       setIsPaused(true);
     } else if (isPlaying && isPaused) {
-      if (ttsMode === 'piper') await piperService.resume(playbackRate, () => { setIsPlaying(false); handleAutoAdvance(); });
+      if (ttsMode === 'piper') await nativeTtsService.resume(playbackRate, () => { setIsPlaying(false); handleAutoAdvance(); });
       else if (ttsMode === 'cloud' && audioCtxRef.current) await audioCtxRef.current.resume();
       else ttsService.resume();
       setIsPaused(false);
@@ -540,7 +540,7 @@ const Home: React.FC = () => {
   const handleStop = () => {
     ttsService.cancel();
     stopCloudAudio();
-    piperService.stop();
+    nativeTtsService.stop();
     setIsPlaying(false);
     setIsPaused(false);
     setIsGeneratingAudio(false);
